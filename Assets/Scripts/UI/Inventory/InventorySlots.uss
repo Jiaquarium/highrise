@@ -1,0 +1,33 @@
+.inventory-slots {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    position: absolute;
+
+    top: 85px;
+
+    background-color: rgba(255, 0, 255, 0.5);
+    width: 40%;
+
+    /* Ensure the below bounds match & work well .inventory__container at different viewports */
+    padding: 6px;
+    min-height: 250px;
+    min-width: 250px;
+
+    max-height: 800px;
+    max-width: 600px;
+
+    width: 100%;
+}
+
+.inventory-slots__container__slots-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.inventory-slots__slot {
+    height: 100px;
+    width: 100px;
+    background-color: rgb(255, 255, 255);
+    margin: 12px;
+}

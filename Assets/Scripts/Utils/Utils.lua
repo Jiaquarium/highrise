@@ -14,11 +14,22 @@ function DeactivateObject(object)
     end
 end
 
+------------ UI ------------
 -- Function to add or remove a class from an element
 function AddRemoveClass(element, class: string, add: boolean)
     if add then
         element:AddToClassList(class)
     else
         element:RemoveFromClassList(class)
+    end
+end
+
+---- Click Handlers ----
+function RegisterCallbacksOnArrayItems(
+    array : {VisualElement},
+    callback : () -> ()
+)
+    for _, item in ipairs(array) do
+        item:RegisterPressCallback(callback, true, true, true)
     end
 end

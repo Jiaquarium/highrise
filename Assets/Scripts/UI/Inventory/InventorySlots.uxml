@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="UnityEngine.UIElements"
+    xmlns:hr="Highrise.UI"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd"
+>
+
+  <hr:UILuaView class="inventory-slots">
+    <VisualElement class="inventory-slots__container__slots-row">
+      <VisualElement class="inventory-slots__slot" name="_inventorySlot0">
+        <Label text="Ingredients" />
+      </VisualElement>
+      <VisualElement class="inventory-slots__slot" name="_inventorySlot1">
+        <Label text="Ingredients" />
+      </VisualElement>
+      <VisualElement class="inventory-slots__slot" name="_inventorySlot2">
+        <Label text="Ingredients" />
+      </VisualElement>
+      <VisualElement class="inventory-slots__slot" name="_inventorySlot3">
+        <Label text="Ingredients" />
+      </VisualElement>
+      <VisualElement class="inventory-slots__slot" name="_inventorySlot4">
+        <Label text="Ingredients" />
+      </VisualElement>
+    </VisualElement>
+    <VisualElement class="inventory-slots__container__slots-row">
+      <VisualElement class="inventory-slots__slot" name="_inventorySlot5">
+        <Label text="Ingredients" />
+      </VisualElement>
+      <VisualElement class="inventory-slots__slot" name="_inventorySlot6">
+        <Label text="Ingredients" />
+      </VisualElement>
+      <VisualElement class="inventory-slots__slot" name="_inventorySlot7">
+        <Label text="Ingredients" />
+      </VisualElement>
+      <VisualElement class="inventory-slots__slot" name="_inventorySlot8">
+        <Label text="Ingredients" />
+      </VisualElement>
+      <VisualElement class="inventory-slots__slot" name="_inventorySlot9">
+        <Label text="Ingredients" />
+      </VisualElement>
+    </VisualElement>
+  </hr:UILuaView>
+
+</UXML>

@@ -15,13 +15,26 @@ local _pageButtonEquipment : VisualElement = nil -- Important do not remove
 --!Bind
 local _closeButton : VisualElement = nil -- Close button for the inventory UI
 
-local buttons = {
+--!SerializeField
+local inventorySlots : { InventorySlots } = nil
+
+tabButtons = {
     ingredients = { element = _pageButtonIngredients, state = 0, title = "Ingredients" },
     recipes = { element = _pageButtonRecipes, state = 1, title = "Recipes" },
     equipment = { element = _pageButtonEquipment, state = 2, title = "Equipment" },
 }
 
 local state : number = 0
+
+local function UpdateSlots()
+    for key, inventorySlotsObject in ipairs(inventorySlots) do
+        if inventorySlotsObject.GetTabState() == state then
+            inventorySlotsObject.gameObject:SetActive(true)
+        else
+            inventorySlotsObject.gameObject:SetActive(false)
+        end
+    end
+end  
 
 -- Function to make life easier xD
 function ButtonPressed(btn: string) : boolean
@@ -36,38 +49,49 @@ function ButtonPressed(btn: string) : boolean
         return true
     end
   
-    -- Check if the button exists in the buttons table
-    local buttonInfo = buttons[btn]
+    -- Check if the button exists in the tabButtons table
+    local buttonInfo = tabButtons[btn]
     
     print("Tab clicked: " .. buttonInfo.title .. "")
     
     if buttonInfo then
-        if state == buttonInfo.state then return true end -- Already in the selected state
-  
-        -- Update header title
-        -- _headerTitle.text = buttonInfo.title
-  
-        -- Update state
-        state = buttonInfo.state
-  
-        -- Update classes for all buttons
-        for key, info in pairs(buttons) do
-            Utils.AddRemoveClass(info.element, "inventory__header__page--deselected", key ~= btn)
-            Utils.AddRemoveClass(info.element, "inventory__header__page", key == btn)
-        end
-        
-        print("Inventory state updated on tab click: " .. state .. "")
+        if state ~= buttonInfo.state then
+            -- Update header title
+            -- _headerTitle.text = buttonInfo.title
+    
+            -- Update state
+            state = buttonInfo.state
 
-        -- Play sound and update inventory
-        -- audioManager.PlaySound("paperSound1", 1)
-        -- UpdateInventory(playerInventory)
+            -- Show slots that match with current state
+            UpdateSlots()
+    
+            -- Update classes for all tabButtons
+            for key, info in pairs(tabButtons) do
+                Utils.AddRemoveClass(info.element, "inventory__header__page--deselected", key ~= btn)
+                Utils.AddRemoveClass(info.element, "inventory__header__page", key == btn)
+            end
+            
+            print("Inventory state updated on tab click: " .. state .. "")
+
+            -- Play sound and update inventory
+            -- audioManager.PlaySound("paperSound1", 1)
+            -- UpdateInventory(playerInventory)
+        end
+
         return true
     end
 
     return false
-  end
+end
 
------------- Callbacks ------------
+------------ Lifecycle ------------
+
+function self:Start()
+    -- Initialize state
+    UpdateSlots()
+end
+
+------------ OnClick Handlers ------------
 
 -- Register a callback to close the inventory UI
 _closeButton:RegisterPressCallback(function()

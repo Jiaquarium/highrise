@@ -18,15 +18,14 @@ using Highrise.Lua;
 
 namespace Highrise.Lua.Generated
 {
-    [AddComponentMenu("Lua/InventoryUI")]
-    [LuaRegisterType(0x598f573fb2bfd6d5, typeof(LuaBehaviour))]
-    public class InventoryUI : LuaBehaviourThunk
+    [AddComponentMenu("Lua/InventorySlots")]
+    [LuaRegisterType(0x6fb94218f8a68ca0, typeof(LuaBehaviour))]
+    public class InventorySlots : LuaBehaviourThunk
     {
-        private const string s_scriptGUID = "8c7e212a0499041c5965c875319c9398";
+        private const string s_scriptGUID = "177717c029abb4850aafd5d26c3eb5dd";
         public override string ScriptGUID => s_scriptGUID;
 
-        [LuaScriptPropertyAttribute("177717c029abb4850aafd5d26c3eb5dd")]
-        [SerializeField] public System.Collections.Generic.List<UnityEngine.Object> m_inventorySlots = default;
+        [SerializeField] public System.Double m_tabState = 0;
 
         protected override SerializedPropertyValue[] SerializeProperties()
         {
@@ -39,7 +38,13 @@ namespace Highrise.Lua.Generated
                 CreateSerializedProperty(_script.GetPropertyAt(1), null),
                 CreateSerializedProperty(_script.GetPropertyAt(2), null),
                 CreateSerializedProperty(_script.GetPropertyAt(3), null),
-                CreateSerializedProperty(_script.GetPropertyAt(4), m_inventorySlots),
+                CreateSerializedProperty(_script.GetPropertyAt(4), null),
+                CreateSerializedProperty(_script.GetPropertyAt(5), null),
+                CreateSerializedProperty(_script.GetPropertyAt(6), null),
+                CreateSerializedProperty(_script.GetPropertyAt(7), null),
+                CreateSerializedProperty(_script.GetPropertyAt(8), null),
+                CreateSerializedProperty(_script.GetPropertyAt(9), null),
+                CreateSerializedProperty(_script.GetPropertyAt(10), m_tabState),
             };
         }
     }
