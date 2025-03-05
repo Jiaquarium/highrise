@@ -51,11 +51,11 @@ function self:ServerAwake()
         GetPlayerStatsFromStorage(player)
 
         -- Dev only to increment currencies
-        Timer.After(3, function()
-            players[player].playerCoins.value = players[player].playerCoins.value + 1
-            players[player].playerMana.value = players[player].playerMana.value + 1
-            StorePlayerStats(player);
-        end)
+        -- Timer.After(3, function()
+        --     players[player].playerCoins.value = players[player].playerCoins.value + 1
+        --     players[player].playerMana.value = players[player].playerMana.value + 1
+        --     StorePlayerStats(player);
+        -- end)
     end)
 end
 

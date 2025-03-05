@@ -17,25 +17,20 @@
 
         <VisualElement class="inventory__header__pages" name="_pageButtons">
           <!-- Fish Page Button -->
-          <VisualElement class="inventory__header__page" name="_pageButtonFish">
+          <VisualElement class="inventory__header__page" name="_pageButtonIngredients">
             <Image name="_pageButtonImageFish" class="inventory__header__page__icon" />
           </VisualElement>
 
           <!-- Bait Page Button -->
-          <VisualElement class="inventory__header__page--deselected" name="_pageButtonBait">
+          <VisualElement class="inventory__header__page--deselected" name="_pageButtonRecipes">
             <Image name="_pageButtonImageBait" class="inventory__header__page__icon" />
           </VisualElement>
 
           <!-- Progress page Button -->
-          <VisualElement class="inventory__header__page--deselected" name="_pageButtonProgress">
+          <VisualElement class="inventory__header__page--deselected" name="_pageButtonEquipment">
             <Image name="_pageButtonImageProgress" class="inventory__header__page__icon" />
           </VisualElement>
 
-          <!-- Stats page Button -->
-          <VisualElement class="inventory__header__page--deselected" name="_pageButtonStats">
-            <Image name="_pageButtonImageStats" class="inventory__header__page__icon" />
-          </VisualElement>
-          
         </VisualElement>
 
       </VisualElement>

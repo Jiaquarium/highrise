@@ -13,3 +13,12 @@ function DeactivateObject(object)
         object:SetActive(false)
     end
 end
+
+-- Function to add or remove a class from an element
+function AddRemoveClass(element, class: string, add: boolean)
+    if add then
+        element:AddToClassList(class)
+    else
+        element:RemoveFromClassList(class)
+    end
+end
