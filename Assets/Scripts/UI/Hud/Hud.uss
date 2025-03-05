@@ -1,0 +1,66 @@
+.hud {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    /* flex-grow: 1; */
+    -unity-font-definition: var(--font-regular);
+    background-color: rgba(218, 110, 110, 0.5);
+ }
+
+.hud__container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    /* flex-grow: 1; */
+    background-color: rgba(210, 3, 158, 0.5);
+    padding: 0px 24px;
+}
+
+.hud__currency {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    background-color: rgba(158, 31, 31, 0.5);
+    padding: 12px;
+}
+
+.hud__stats-icon-holder {
+    /* padding: 12px; */
+    background-color: rgba(24, 205, 99, 0.5);
+}
+
+.hud__stats-stat-holder {
+    margin-left: 12px;
+    width: 100px;
+    background-color: rgba(24, 205, 99, 0.5);
+}
+
+.hud__stat {
+    
+}
+
+.hud__stat-icon-coin {
+    height: 24px;
+    width: 24px;
+    background-image: url("project://database/Assets/Art/icon_coin.png");
+}
+
+.hud__stat-icon-mana {
+    height: 24px;
+    width: 24px;
+    background-image: url("project://database/Assets/Art/blue_star.png");
+}
+
+.hud__counter {
+    /* position: flex; */
+    /* align-self: center; */
+    /* font-size: 70px;
+    color: #fff; */
+    /* text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5); */
+ }
+
+ /* .secondary-button:hover {
+    background-color: rgba(0, 255, 0, 0.4);
+ } */

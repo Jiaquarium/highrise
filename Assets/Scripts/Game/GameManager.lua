@@ -2,6 +2,7 @@
 
 export type PlayerStats = {
 	playerCoins: number, -- Primary in-game currency
+    playerMana: number, -- Secondary, premium in-game currency
 }
 
 local clientJoinRequets = Event.new("ClientJoinRequest")
@@ -15,10 +16,8 @@ function TrackPlayers(game, characterCallback)
 		players[player] = {
 			player = player,
 			playerCoins = IntValue.new("PlayerCoins" .. tostring(player.id), 0, player),
+            playerMana = IntValue.new("PlayerMana" .. tostring(player.id), 0, player),
 		}
-
-		print("Tracked player: " .. player.name .. "");
-		print("Tracked player with initial value coins: " .. players[player].playerCoins.value .. "");
 
 		player.CharacterChanged:Connect(function(player, character) 
             local playerinfo = players[player]
@@ -51,7 +50,12 @@ function self:ServerAwake()
     clientJoinRequets:Connect(function(player)
         GetPlayerStatsFromStorage(player)
 
-		print("Got coins from Storage API: " .. players[player].playerCoins.value .. "")
+        -- Dev only to increment currencies
+        Timer.After(3, function()
+            players[player].playerCoins.value = players[player].playerCoins.value + 1
+            players[player].playerMana.value = players[player].playerMana.value + 1
+            StorePlayerStats(player);
+        end)
     end)
 end
 
@@ -67,7 +71,8 @@ function GetPlayerStatsFromStorage(player)
             -- Default values if no data found
             print("No player stats found for " .. player.name .. ". Defaulting to new game.")
             playerStats = {
-                playerCoins = 0
+                playerCoins = 0,
+                playerMana = 0
             }
         end
 
@@ -75,12 +80,13 @@ function GetPlayerStatsFromStorage(player)
 		-- (must null-check again to avoid type error)
 		if playerStats ~= nil then
         	players[player].playerCoins.value = playerStats.playerCoins or 0
+            players[player].playerMana.value = playerStats.playerMana or 0
 		end
 
         -- Print the player's stats
-        print(player.name .. "'s stats: ")
-        print("Player coins: " .. tostring(players[player].playerCoins.value))
-
+        print(player.name .. "'s get stats: ")
+        print("Coins: " .. tostring(players[player].playerCoins.value))
+        print("Mana: " .. tostring(players[player].playerMana.value))
     end) 
 end
 
@@ -93,11 +99,15 @@ function StorePlayerStats(player)
     local playerInfo = players[player]
     local playerStats = {
         playerCoins = playerInfo.playerCoins.value,
+        playerMana = playerInfo.playerMana.value,
     }
 
     Storage.SetPlayerValue(player, "PlayerStats", playerStats, function(err)
         if err ~= StorageError.None then print("Error: " .. err) end
     end)
 
-	print("Set server coins to current network coins: " .. playerStats.playerCoins .. "")
+	-- Print the player's stats
+    print(player.name .. "'s set stats: ")
+    print("Coins: " .. tostring(players[player].playerCoins.value))
+    print("Mana: " .. tostring(players[player].playerMana.value))
 end

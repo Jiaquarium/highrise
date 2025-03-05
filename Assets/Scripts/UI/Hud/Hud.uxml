@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="UnityEngine.UIElements"
+    xmlns:hr="Highrise.UI"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+>
+
+  <hr:UILuaView class="hud">
+    <VisualElement class="hud__container">
+      <VisualElement class="hud__currency">
+          <VisualElement class="hud__stats-icon-holder">
+            <VisualElement class="hud__stat-icon-coin" name="" />
+          </VisualElement>
+          <VisualElement class="hud__stats-stat-holder">
+            <hr:UILabel class="hud__stat" name="_coins_count" picking-mode="Ignore" />
+          </VisualElement>
+      </VisualElement>
+      <VisualElement class="hud__currency">
+          <VisualElement class="hud__stats-icon-holder">
+            <VisualElement class="hud__stat-icon-mana" name="" />
+          </VisualElement>
+          <VisualElement class="hud__stats-stat-holder">
+            <hr:UILabel class="hud__stat" name="_mana_count" picking-mode="Ignore" />
+          </VisualElement>
+      </VisualElement>
+    </VisualElement>
+  </hr:UILuaView>
+</UXML>
