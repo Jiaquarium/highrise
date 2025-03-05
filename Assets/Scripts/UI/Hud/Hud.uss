@@ -1,6 +1,4 @@
 :root {
-  --journal-pic: url("project://database/Assets/Art/UI/icon_journal.png");
-
   --color-primary: #F2E4C6;
   --color-secondary: #b08b5e;
   --color-tertiary: #684F36;
@@ -14,11 +12,11 @@
 }
 
 .hud {
-    /* position: relative;
+    position: absolute;
     display: flex;
-    flex-direction: row; */
-    /* flex-grow: 1; */
-    height: 100%;
+    flex-direction: row;
+    margin: 0px 24px;
+    background-color: rgba(0, 0, 0, 1);
     -unity-font-definition: var(--font-regular);
  }
 
@@ -28,7 +26,6 @@
     display: flex;
     flex-direction: row;
     /* flex-grow: 1; */
-    padding: 0px 24px;
     
     /* dev only */
     background-color: rgba(210, 3, 158, 0.5);
@@ -75,64 +72,4 @@
     height: 24px;
     width: 24px;
     background-image: url("project://database/Assets/Art/blue_star.png");
-}
-
-/* ------------ Bottom Right HUD ------------ */
-
-#_InventoryIcon {
-  --unity-image: var(--journal-pic);
-}
-
-.world-button {
-  display: flex;
-  position: absolute;
-
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  width: 96px;
-  height: 132px;
-
-  font-size: 14px;
-
-  transition-property: scale;
-  transition-duration: 0.2s;
-}
-
-.world-button.inventory {
-  position: absolute;
-  right: 11px;
-  bottom: 20px;
-
-  background-color: rgba(210, 3, 158, 0.5);
-}
-
-.placeholder {
-  display: flex;
-  position: absolute;
-  bottom: 0px;
-
-  background-color: #f2e4c6;
-  border-width: 2px;
-  border-color: #bfa27d;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 96px;
-  height: 36px;
-}
-
-.inventory-text {
-  
-}
-
-.button-icon {
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 36px;
-
-  --unity-image-tint-color: white;
-  scale: 0.8;
 }
