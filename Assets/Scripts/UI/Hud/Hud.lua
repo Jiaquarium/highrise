@@ -1,12 +1,17 @@
 --!Type(UI)
 local GameManager = require("GameManager")
+local UIManager = require("UIManager")
 
 --!Bind
 local _coins_count : UILabel = nil
 --!Bind
 local _mana_count : UILabel = nil
+--!Bind
+local _InventoryButton : VisualElement = nil
 
-local counter = 0 -- Initialize the counter
+_InventoryButton:RegisterPressCallback(function()
+    UIManager.ButtonPressed("Inventory")
+end, true, true, true)
 
 function self:Start()
     GameManager.players[client.localPlayer].playerCoins.Changed:Connect(function(coins)

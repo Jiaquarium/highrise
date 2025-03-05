@@ -1,19 +1,37 @@
+:root {
+  --journal-pic: url("project://database/Assets/Art/UI/icon_journal.png");
+
+  --color-primary: #F2E4C6;
+  --color-secondary: #b08b5e;
+  --color-tertiary: #684F36;
+  --color-white: #f2e2e1;
+
+  /* Leveling & XP */
+  --xp-bar-fill: #F28C28;
+  --xp-bar-background: #2E2E2E;
+  --xp-bar-text: #E0E0C7;
+  --xp-bar-border: #754C24;
+}
+
 .hud {
-    position: relative;
+    /* position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: row; */
     /* flex-grow: 1; */
+    height: 100%;
     -unity-font-definition: var(--font-regular);
-    background-color: rgba(218, 110, 110, 0.5);
  }
 
+/* ------------ Top HUD ------------ */
 .hud__container {
     position: relative;
     display: flex;
     flex-direction: row;
     /* flex-grow: 1; */
-    background-color: rgba(210, 3, 158, 0.5);
     padding: 0px 24px;
+    
+    /* dev only */
+    background-color: rgba(210, 3, 158, 0.5);
 }
 
 .hud__currency {
@@ -22,18 +40,24 @@
     align-items: center;
     color: rgb(255, 255, 255);
     font-size: 24px;
-    background-color: rgba(158, 31, 31, 0.5);
     padding: 12px;
+
+    /* dev only */
+    background-color: rgba(158, 31, 31, 0.5);
 }
 
 .hud__stats-icon-holder {
     /* padding: 12px; */
+
+    /* dev only */
     background-color: rgba(24, 205, 99, 0.5);
 }
 
 .hud__stats-stat-holder {
     margin-left: 12px;
     width: 100px;
+
+    /* dev only */
     background-color: rgba(24, 205, 99, 0.5);
 }
 
@@ -53,14 +77,62 @@
     background-image: url("project://database/Assets/Art/blue_star.png");
 }
 
-.hud__counter {
-    /* position: flex; */
-    /* align-self: center; */
-    /* font-size: 70px;
-    color: #fff; */
-    /* text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5); */
- }
+/* ------------ Bottom Right HUD ------------ */
 
- /* .secondary-button:hover {
-    background-color: rgba(0, 255, 0, 0.4);
- } */
+#_InventoryIcon {
+  --unity-image: var(--journal-pic);
+}
+
+.world-button {
+  display: flex;
+  position: absolute;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 96px;
+  height: 132px;
+
+  font-size: 14px;
+
+  transition-property: scale;
+  transition-duration: 0.2s;
+}
+
+.world-button.inventory {
+  position: absolute;
+  right: 11px;
+  bottom: 20px;
+
+  background-color: rgba(210, 3, 158, 0.5);
+}
+
+.placeholder {
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+
+  background-color: #f2e4c6;
+  border-width: 2px;
+  border-color: #bfa27d;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 96px;
+  height: 36px;
+}
+
+.inventory-text {
+  
+}
+
+.button-icon {
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 36px;
+
+  --unity-image-tint-color: white;
+  scale: 0.8;
+}

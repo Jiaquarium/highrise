@@ -26,5 +26,13 @@
           </VisualElement>
       </VisualElement>
     </VisualElement>
+
+    <!-- Container for the shop, inventory, and leaderboard buttons -->
+    <VisualElement class="world-button inventory" name="_InventoryButton">
+      <hr:UIImage class="button-icon" name="_InventoryIcon"/>
+      <VisualElement class="placeholder inventory" picking-mode="Ignore">
+        <Label class="inventory-text" text="Inventory"/>
+      </VisualElement>
+    </VisualElement>
   </hr:UILuaView>
 </UXML>

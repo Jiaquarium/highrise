@@ -46,7 +46,7 @@ end
 function ButtonPressed(btn: string)
     if btn == "Inventory" then
         ToggleAll(false)
-        -- ToggleUI("Inventory", true)
+        ToggleUI("Inventory", true)
         -- if not InventoryUIScript then
         --     InventoryUIScript = InventoryObject:GetComponent(inventory)
         -- end
