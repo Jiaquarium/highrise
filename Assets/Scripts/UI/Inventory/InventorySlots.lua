@@ -1,6 +1,6 @@
 --!Type(UI)
 
-local Utils = require("Utils")
+local InventoryConsts = require("InventoryConstants")
 
 type InventorySlot = {
     element : VisualElement
@@ -52,8 +52,23 @@ local function OnSlotClick()
 end
 
 function self:Awake()
+    print(InventoryConsts.TABS.INGREDIENTS.TITLE)
+    
     -- Register OnClick Handlers
     for _, item in pairs(slots) do
-        item.element:RegisterPressCallback(OnSlotClick, true, true, true)
+        local element = item.element
+        element:RegisterPressCallback(OnSlotClick, true, true, true)
+        
+        -- Get first child
+        local label = element:ElementAt(0)
+        local newText = nil
+
+        for i, tab in pairs(InventoryConsts.TABS) do
+            if tabState == tab.STATE then
+                newText = tab.TITLE
+            end
+        end
+
+        label.text = newText
     end
 end

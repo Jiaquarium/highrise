@@ -18,10 +18,40 @@ local _closeButton : VisualElement = nil -- Close button for the inventory UI
 --!SerializeField
 local inventorySlots : { InventorySlots } = nil
 
+-- tabButtons = {
+--     ingredients = {
+--         element = _pageButtonIngredients,
+--         state = Utils.TABS.INGREDIENTS.STATE,
+--         title = InventoryConstants.TABS.INGREDIENTS.TITLE
+--     },
+--     recipes = {
+--         element = _pageButtonRecipes,
+--         state = InventoryConstants.TABS.RECIPES.STATE,
+--         title = InventoryConstants.TABS.RECIPES.STATE,
+--     },
+--     equipment = {
+--         element = _pageButtonEquipment,
+--         state = InventoryConstants.TABS.EQUIPMENT.STATE,
+--         title = InventoryConstants.TABS.EQUIPMENT.STATE,
+--     },
+-- }
+
 tabButtons = {
-    ingredients = { element = _pageButtonIngredients, state = 0, title = "Ingredients" },
-    recipes = { element = _pageButtonRecipes, state = 1, title = "Recipes" },
-    equipment = { element = _pageButtonEquipment, state = 2, title = "Equipment" },
+    ingredients = {
+        element = _pageButtonIngredients,
+        state = 0,
+        title = "Ingredients"
+    },
+    recipes = {
+        element = _pageButtonRecipes,
+        state = 1,
+        title = "Recipes",
+    },
+    equipment = {
+        element = _pageButtonEquipment,
+        state = 2,
+        title = "Equipment",
+    },
 }
 
 local state : number = 0
@@ -34,7 +64,7 @@ local function UpdateSlots()
             inventorySlotsObject.gameObject:SetActive(false)
         end
     end
-end  
+end
 
 -- Function to make life easier xD
 function ButtonPressed(btn: string) : boolean
